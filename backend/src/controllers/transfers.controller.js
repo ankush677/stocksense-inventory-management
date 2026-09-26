@@ -31,7 +31,6 @@ const createTransfer = async (req, res) => {
 
     await client.query("BEGIN");
 
-    // Check source stock
     const sourceStock = await client.query(
       `SELECT *
        FROM location_stock
@@ -55,7 +54,6 @@ const createTransfer = async (req, res) => {
       });
     }
 
-    // Check destination stock
     const destinationStock = await client.query(
       `SELECT *
        FROM location_stock
@@ -64,7 +62,6 @@ const createTransfer = async (req, res) => {
       [to_location_id, product_id]
     );
 
-    // Create transfer record
     const transferResult = await client.query(
       `INSERT INTO stock_transfers
        (product_id, from_location_id, to_location_id, quantity)
@@ -73,7 +70,6 @@ const createTransfer = async (req, res) => {
       [product_id, from_location_id, to_location_id, quantity]
     );
 
-    // Decrease source
     const sourceResult = await client.query(
       `UPDATE location_stock
        SET quantity = quantity - $1,
@@ -84,7 +80,6 @@ const createTransfer = async (req, res) => {
       [quantity, from_location_id, product_id]
     );
 
-    // Increase destination
     let destinationResult;
 
     if (destinationStock.rows.length === 0) {
@@ -128,6 +123,43 @@ const createTransfer = async (req, res) => {
   }
 };
 
+// Get recent transfers
+const getTransfers = async (req, res) => {
+  try {
+    const result = await pool.query(`
+      SELECT
+        st.id,
+        st.product_id,
+        p.name AS product_name,
+        p.sku,
+        st.from_location_id,
+        fl.name AS from_location,
+        st.to_location_id,
+        tl.name AS to_location,
+        st.quantity,
+        st.transferred_at
+      FROM stock_transfers st
+      JOIN products p
+        ON p.id = st.product_id
+      JOIN locations fl
+        ON fl.id = st.from_location_id
+      JOIN locations tl
+        ON tl.id = st.to_location_id
+      ORDER BY st.transferred_at DESC
+      LIMIT 8
+    `);
+
+    res.json(result.rows);
+  } catch (error) {
+    console.error(error);
+
+    res.status(500).json({
+      message: "Failed to fetch transfers",
+    });
+  }
+};
+
 module.exports = {
   createTransfer,
+  getTransfers,
 };
