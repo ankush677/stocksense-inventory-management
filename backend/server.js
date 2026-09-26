@@ -1,6 +1,12 @@
 const express = require("express");
 const pool = require("./src/config/db");
 const productsRoutes = require("./src/routes/products.routes");
+const receiptsRoutes = require("./src/routes/receipts.routes");
+const deliveriesRoutes = require("./src/routes/deliveries.routes");
+const adjustmentsRoutes = require("./src/routes/adjustments.routes");
+const ledgerRoutes = require("./src/routes/ledger.routes");
+const dashboardRoutes = require("./src/routes/dashboard.routes");
+const transfersRoutes = require("./src/routes/transfers.routes");
 
 const app = express();
 const PORT = 5000;
@@ -8,6 +14,18 @@ const PORT = 5000;
 app.use(express.json());
 
 app.use("/api/products", productsRoutes);
+
+app.use("/api/receipts", receiptsRoutes);
+
+app.use("/api/deliveries", deliveriesRoutes);
+
+app.use("/api/adjustments", adjustmentsRoutes);
+
+app.use("/api/ledger", ledgerRoutes);
+
+app.use("/api/dashboard", dashboardRoutes);
+
+app.use("/api/transfers", transfersRoutes);
 
 app.get("/", (req, res) => {
   res.json({
