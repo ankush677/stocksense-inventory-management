@@ -9,6 +9,7 @@ const adjustmentsRoutes = require("./src/routes/adjustments.routes");
 const ledgerRoutes = require("./src/routes/ledger.routes");
 const dashboardRoutes = require("./src/routes/dashboard.routes");
 const transfersRoutes = require("./src/routes/transfers.routes");
+const authRoutes = require("./src/routes/auth.routes");
 
 const app = express();
 const PORT = 5000;
@@ -25,6 +26,7 @@ app.use("/api/adjustments", adjustmentsRoutes);
 app.use("/api/ledger", ledgerRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/transfers", transfersRoutes);
+app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
   res.json({
