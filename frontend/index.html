@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic page configuration -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the website responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Browser tab title -->
+    <title>StockSense — Inventory OS</title>
+
+    <!-- Website description -->
+    <meta
+        name="description"
+        content="StockSense intelligent inventory management system"
+    >
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         APPLICATION CONTAINER
+         ========================================================= -->
+
+    <div class="app">
+
+
+        <!-- =====================================================
+             SIDEBAR
+             ===================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <!-- Brand -->
+            <div class="brand">
+
+                <div class="brand-logo">
+                    <span>▦</span>
+                </div>
+
+                <div class="brand-text">
+                    <h1>StockSense</h1>
+                    <span>INVENTORY OS</span>
+                </div>
+
+            </div>
+
+
+            <!-- Workspace -->
+            <div class="workspace">
+
+                <p class="section-label">
+                    WORKSPACE
+                </p>
+
+                <button class="warehouse-selector">
+
+                    <div class="warehouse-icon">
+                        🏭
+                    </div>
+
+                    <div class="warehouse-info">
+
+                        <strong>
+                            Main Warehouse
+                        </strong>
+
+                        <small>
+                            WH-001
+                        </small>
+
+                    </div>
+
+                    <span class="chevron">
+                        ▼
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- Main navigation -->
+            <nav class="navigation">
+
+                <p class="section-label">
+                    OPERATIONS
+                </p>
+
+
+                <button
+                    class="nav-item active"
+                    data-page="dashboard"
+                >
+
+                    <span class="nav-icon">▣</span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="products"
+                >
+
+                    <span class="nav-icon">▤</span>
+
+                    <span>
+                        Products
+                    </span>
+
+                    <span class="nav-count">
+                        8426
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="receipts"
+                >
+
+                    <span class="nav-icon">↓</span>
+
+                    <span>
+                        Receipts
+                    </span>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="deliveries"
+                >
+
+                    <span class="nav-icon">↑</span>
+
+                    <span>
+                        Deliveries
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="transfers"
+                >
+
+                    <span class="nav-icon">⇄</span>
+
+                    <span>
+                        Transfers
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="adjustments"
+                >
+
+                    <span class="nav-icon">✓</span>
+
+                    <span>
+                        Adjustments
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-page="ledger"
+                >
+
+                    <span class="nav-icon">☷</span>
+
+                    <span>
+                        Stock Ledger
+                    </span>
+
+                </button>
+
+
+                <p class="section-label system-label">
+                    SYSTEM
+                </p>
+
+
+                <button
+                    class="nav-item"
+                    data-page="settings"
+                >
+
+                    <span class="nav-icon">⚙</span>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </button>
+
+            </nav>
+
+
+            <!-- Sidebar bottom -->
+            <div class="sidebar-bottom">
+
+                <div class="system-status">
+
+                    <span class="status-indicator"></span>
+
+                    <div>
+
+                        <strong>
+                            Systems operational
+                        </strong>
+
+                        <small>
+                            All services running
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="user-profile">
+
+                    <div class="avatar">
+                        AR
+                    </div>
+
+                    <div class="user-info">
+
+                        <strong>
+                            Admin User
+                        </strong>
+
+                        <small>
+                            Inventory Manager
+                        </small>
+
+                    </div>
+
+                    <button class="more-button">
+                        ⋮
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+             ===================================================== -->
+
+        <main class="main">
+
+
+            <!-- =================================================
+                 TOPBAR
+                 ================================================= -->
+
+            <header class="topbar">
+
+                <!-- Mobile menu -->
+                <button
+                    class="mobile-menu"
+                    id="mobileMenu"
+                >
+                    ☰
+                </button>
+
+
+                <!-- Page information -->
+                <div class="page-heading">
+
+                    <span>
+                        Monday, September 26, 2026
+                    </span>
+
+                    <h2>
+                        Inventory Overview
+                    </h2>
+
+                </div>
+
+
+                <!-- Topbar actions -->
+                <div class="topbar-actions">
+
+
+                    <!-- Global search -->
+                    <div class="global-search">
+
+                        <span>
+                            ⌕
+                        </span>
+
+                        <input
+                            type="text"
+                            id="globalSearch"
+                            placeholder="Search inventory..."
+                        >
+
+                        <kbd>
+                            /
+                        </kbd>
+
+                    </div>
+
+
+                    <!-- Theme button -->
+                    <button
+                        class="icon-button"
+                        id="themeButton"
+                        title="Toggle theme"
+                    >
+                        ◐
+                    </button>
+
+
+                    <!-- Notification -->
+                    <button
+                        class="icon-button notification-button"
+                        id="notificationButton"
+                    >
+
+                        🔔
+
+                        <span class="notification-badge">
+                            3
+                        </span>
+
+                    </button>
+
+
+                    <!-- User -->
+                    <button class="top-user">
+
+                        <span class="top-avatar">
+                            AR
+                        </span>
+
+                        <span class="top-user-name">
+                            Admin
+                        </span>
+
+                        <span>
+                            ▼
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 DASHBOARD CONTENT
+                 ================================================= -->
+
+            <section class="content">
+
+
+                <!-- Page title -->
+                <div class="welcome-row">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            GOOD MORNING, ADMIN 👋
+                        </span>
+
+                        <h1>
+                            Here's what's happening today.
+                        </h1>
+
+                        <p>
+                            Monitor your inventory, operations and
+                            warehouse activity from one place.
+                        </p>
+
+                    </div>
+
+
+                    <div class="page-actions">
+
+                        <button class="secondary-button">
+                            ↓ Export Report
+                        </button>
+
+                        <button
+                            class="primary-button"
+                            id="newOperationButton"
+                        >
+                            + New Operation
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     FILTER BAR
+                     ================================================= -->
+
+                <div class="filter-bar">
+
+                    <div class="filter-title">
+                        <span>⚡</span>
+                        Smart Filters
+                    </div>
+
+
+                    <select class="filter-select">
+
+                        <option>
+                            All Operations
+                        </option>
+
+                        <option>
+                            Receipts
+                        </option>
+
+                        <option>
+                            Deliveries
+                        </option>
+
+                        <option>
+                            Transfers
+                        </option>
+
+                        <option>
+                            Adjustments
+                        </option>
+
+                    </select>
+
+
+                    <select class="filter-select">
+
+                        <option>
+                            All Status
+                        </option>
+
+                        <option>
+                            Draft
+                        </option>
+
+                        <option>
+                            Waiting
+                        </option>
+
+                        <option>
+                            Ready
+                        </option>
+
+                        <option>
+                            Done
+                        </option>
+
+                        <option>
+                            Canceled
+                        </option>
+
+                    </select>
+
+
+                    <select class="filter-select">
+
+                        <option>
+                            Main Warehouse
+                        </option>
+
+                        <option>
+                            Warehouse 2
+                        </option>
+
+                        <option>
+                            Production Floor
+                        </option>
+
+                    </select>
+
+
+                    <select class="filter-select">
+
+                        <option>
+                            All Categories
+                        </option>
+
+                        <option>
+                            Raw Material
+                        </option>
+
+                        <option>
+                            Furniture
+                        </option>
+
+                        <option>
+                            Electrical
+                        </option>
+
+                        <option>
+                            Safety
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        class="reset-filter"
+                        id="resetFilters"
+                    >
+                        ↻ Reset
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     KPI CARDS
+                     ================================================= -->
+
+                <div class="kpi-grid">
+
+
+                    <!-- KPI 1 -->
+                    <div class="kpi-card">
+
+                        <div class="kpi-top">
+
+                            <div>
+
+                                <span class="kpi-label">
+                                    TOTAL PRODUCTS
+                                </span>
+
+                                <h2>
+                                    8,426
+                                </h2>
+
+                            </div>
+
+                            <div class="kpi-icon blue">
+                                ▤
+                            </div>
+
+                        </div>
+
+
+                        <div class="kpi-bottom">
+
+                            <span class="trend positive">
+                                ↑ 8.4%
+                            </span>
+
+                            <span>
+                                vs last month
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- KPI 2 -->
+                    <div class="kpi-card danger-card">
+
+                        <div class="kpi-top">
+
+                            <div>
+
+                                <span class="kpi-label">
+                                    LOW / OUT OF STOCK
+                                </span>
+
+                                <h2>
+                                    27
+                                </h2>
+
+                            </div>
+
+                            <div class="kpi-icon red">
+                                !
+                            </div>
+
+                        </div>
+
+
+                        <div class="kpi-bottom">
+
+                            <span class="trend negative">
+                                ↑ 5 items
+                            </span>
+
+                            <span>
+                                need attention
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- KPI 3 -->
+                    <div class="kpi-card">
+
+                        <div class="kpi-top">
+
+                            <div>
+
+                                <span class="kpi-label">
+                                    PENDING RECEIPTS
+                                </span>
+
+                                <h2>
+                                    18
+                                </h2>
+
+                            </div>
+
+                            <div class="kpi-icon purple">
+                                ↓
+                            </div>
+
+                        </div>
+
+
+                        <div class="kpi-bottom">
+
+                            <span class="trend positive">
+                                ↑ 4.2%
+                            </span>
+
+                            <span>
+                                incoming
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- KPI 4 -->
+                    <div class="kpi-card">
+
+                        <div class="kpi-top">
+
+                            <div>
+
+                                <span class="kpi-label">
+                                    PENDING DELIVERIES
+                                </span>
+
+                                <h2>
+                                    31
+                                </h2>
+
+                            </div>
+
+                            <div class="kpi-icon orange">
+                                ↑
+                            </div>
+
+                        </div>
+
+
+                        <div class="kpi-bottom">
+
+                            <span class="trend positive">
+                                ↑ 6.1%
+                            </span>
+
+                            <span>
+                                awaiting dispatch
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- KPI 5 -->
+                    <div class="kpi-card">
+
+                        <div class="kpi-top">
+
+                            <div>
+
+                                <span class="kpi-label">
+                                    TRANSFERS TODAY
+                                </span>
+
+                                <h2>
+                                    12
+                                </h2>
+
+                            </div>
+
+                            <div class="kpi-icon green">
+                                ⇄
+                            </div>
+
+                        </div>
+
+
+                        <div class="kpi-bottom">
+
+                            <span class="trend neutral">
+                                4 active
+                            </span>
+
+                            <span>
+                                scheduled
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CHARTS
+                     ================================================= -->
+
+                <div class="chart-grid">
+
+
+                    <!-- Inventory value chart -->
+                    <div class="card chart-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <div class="title-with-badge">
+
+                                    <h3>
+                                        Inventory Value
+                                    </h3>
+
+                                    <span class="success-badge">
+                                        +12.8%
+                                    </span>
+
+                                </div>
+
+                                <p>
+                                    Stock value over the last 6 months
+                                </p>
+
+                            </div>
+
+
+                            <button class="more-button">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <div class="chart-summary">
+
+                            <strong>
+                                ₹7.9M
+                            </strong>
+
+                            <span>
+                                Current inventory value
+                            </span>
+
+                        </div>
+
+
+                        <div class="line-chart">
+
+                            <svg
+                                viewBox="0 0 800 280"
+                                preserveAspectRatio="none"
+                            >
+
+                                <!-- Grid -->
+                                <line
+                                    x1="0"
+                                    y1="40"
+                                    x2="800"
+                                    y2="40"
+                                    class="chart-grid-line"
+                                />
+
+                                <line
+                                    x1="0"
+                                    y1="100"
+                                    x2="800"
+                                    y2="100"
+                                    class="chart-grid-line"
+                                />
+
+                                <line
+                                    x1="0"
+                                    y1="160"
+                                    x2="800"
+                                    y2="160"
+                                    class="chart-grid-line"
+                                />
+
+                                <line
+                                    x1="0"
+                                    y1="220"
+                                    x2="800"
+                                    y2="220"
+                                    class="chart-grid-line"
+                                />
+
+
+                                <!-- Gradient -->
+                                <defs>
+
+                                    <linearGradient
+                                        id="chartGradient"
+                                        x1="0"
+                                        y1="0"
+                                        x2="0"
+                                        y2="1"
+                                    >
+
+                                        <stop
+                                            offset="0%"
+                                            stop-color="#6366f1"
+                                            stop-opacity=".28"
+                                        />
+
+                                        <stop
+                                            offset="100%"
+                                            stop-color="#6366f1"
+                                            stop-opacity="0"
+                                        />
+
+                                    </linearGradient>
+
+                                </defs>
+
+
+                                <!-- Area -->
+                                <path
+                                    d="M0 220
+                                    C80 205 100 180 160 190
+                                    C220 200 250 125 320 140
+                                    C390 155 410 100 470 110
+                                    C530 120 570 80 620 95
+                                    C680 110 720 55 800 60
+                                    L800 280
+                                    L0 280 Z"
+                                    fill="url(#chartGradient)"
+                                />
+
+
+                                <!-- Line -->
+                                <path
+                                    d="M0 220
+                                    C80 205 100 180 160 190
+                                    C220 200 250 125 320 140
+                                    C390 155 410 100 470 110
+                                    C530 120 570 80 620 95
+                                    C680 110 720 55 800 60"
+                                    fill="none"
+                                    stroke="#6366f1"
+                                    stroke-width="4"
+                                    stroke-linecap="round"
+                                />
+
+
+                                <!-- Points -->
+                                <circle
+                                    cx="800"
+                                    cy="60"
+                                    r="7"
+                                    fill="#6366f1"
+                                    stroke="white"
+                                    stroke-width="4"
+                                />
+
+                            </svg>
+
+                            <div class="chart-labels">
+
+                                <span>Apr</span>
+                                <span>May</span>
+                                <span>Jun</span>
+                                <span>Jul</span>
+                                <span>Aug</span>
+                                <span>Sep</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Stock movement -->
+                    <div class="card movement-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Stock Movement
+                                </h3>
+
+                                <p>
+                                    Operations this month
+                                </p>
+
+                            </div>
+
+                            <button class="more-button">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <div class="movement-list">
+
+
+                            <div class="movement-item">
+
+                                <div class="movement-icon incoming">
+                                    ↓
+                                </div>
+
+                                <div class="movement-info">
+
+                                    <strong>
+                                        Receipts
+                                    </strong>
+
+                                    <span>
+                                        Incoming stock
+                                    </span>
+
+                                </div>
+
+                                <strong>
+                                    124
+                                </strong>
+
+                            </div>
+
+
+                            <div class="movement-item">
+
+                                <div class="movement-icon outgoing">
+                                    ↑
+                                </div>
+
+                                <div class="movement-info">
+
+                                    <strong>
+                                        Deliveries
+                                    </strong>
+
+                                    <span>
+                                        Outgoing stock
+                                    </span>
+
+                                </div>
+
+                                <strong>
+                                    86
+                                </strong>
+
+                            </div>
+
+
+                            <div class="movement-item">
+
+                                <div class="movement-icon transfer">
+                                    ⇄
+                                </div>
+
+                                <div class="movement-info">
+
+                                    <strong>
+                                        Transfers
+                                    </strong>
+
+                                    <span>
+                                        Internal movement
+                                    </span>
+
+                                </div>
+
+                                <strong>
+                                    58
+                                </strong>
+
+                            </div>
+
+
+                            <div class="movement-item">
+
+                                <div class="movement-icon adjustment">
+                                    ✓
+                                </div>
+
+                                <div class="movement-info">
+
+                                    <strong>
+                                        Adjustments
+                                    </strong>
+
+                                    <span>
+                                        Stock corrections
+                                    </span>
+
+                                </div>
+
+                                <strong>
+                                    21
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     AI INSIGHT
+                     ================================================= -->
+
+                <div class="ai-banner">
+
+                    <div class="ai-icon">
+                        ✦
+                    </div>
+
+
+                    <div class="ai-content">
+
+                        <div class="ai-heading">
+
+                            <strong>
+                                StockSense Intelligence
+                            </strong>
+
+                            <span>
+                                LIVE INSIGHT
+                            </span>
+
+                        </div>
+
+                        <p>
+
+                            Copper Wire demand has increased by
+                            <strong>18%</strong>
+                            over the last 14 days. At the current
+                            consumption rate, inventory may reach
+                            the reorder threshold within
+                            <strong>9 days.</strong>
+
+                        </p>
+
+                    </div>
+
+
+                    <button class="ai-button">
+                        View Recommendation →
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                     LOWER GRID
+                     ================================================= -->
+
+                <div class="lower-grid">
+
+
+                    <!-- Inventory health -->
+                    <div class="card table-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Inventory Health
+                                </h3>
+
+                                <p>
+                                    Latest product stock status
+                                </p>
+
+                            </div>
+
+                            <button class="view-button">
+                                View all →
+                            </button>
+
+                        </div>
+
+
+                        <div class="table-wrapper">
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            PRODUCT
+                                        </th>
+
+                                        <th>
+                                            CATEGORY
+                                        </th>
+
+                                        <th>
+                                            STOCK
+                                        </th>
+
+                                        <th>
+                                            STATUS
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <td>
+
+                                            <div class="product-cell">
+
+                                                <div class="product-icon">
+                                                    ▤
+                                                </div>
+
+                                                <div>
+
+                                                    <strong>
+                                                        Steel Rod
+                                                    </strong>
+
+                                                    <span>
+                                                        SR-001
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            Raw Material
+                                        </td>
+
+                                        <td>
+                                            <strong>
+                                                1,240 KG
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            <span class="status healthy">
+                                                Healthy
+                                            </span>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+
+                                            <div class="product-cell">
+
+                                                <div class="product-icon">
+                                                    ▤
+                                                </div>
+
+                                                <div>
+
+                                                    <strong>
+                                                        Industrial Chair
+                                                    </strong>
+
+                                                    <span>
+                                                        CH-204
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            Furniture
+                                        </td>
+
+                                        <td>
+                                            <strong>
+                                                84 PCS
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            <span class="status low">
+                                                Low Stock
+                                            </span>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+
+                                            <div class="product-cell">
+
+                                                <div class="product-icon">
+                                                    ▤
+                                                </div>
+
+                                                <div>
+
+                                                    <strong>
+                                                        Copper Wire
+                                                    </strong>
+
+                                                    <span>
+                                                        CW-108
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            Electrical
+                                        </td>
+
+                                        <td>
+                                            <strong>
+                                                620 M
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            <span class="status healthy">
+                                                Healthy
+                                            </span>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+
+                                            <div class="product-cell">
+
+                                                <div class="product-icon">
+                                                    ▤
+                                                </div>
+
+                                                <div>
+
+                                                    <strong>
+                                                        Safety Helmet
+                                                    </strong>
+
+                                                    <span>
+                                                        SH-309
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            Safety
+                                        </td>
+
+                                        <td>
+                                            <strong>
+                                                0 PCS
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            <span class="status out">
+                                                Out of Stock
+                                            </span>
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Alerts -->
+                    <div class="card alerts-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <h3>
+                                    Inventory Alerts
+                                </h3>
+
+                                <p>
+                                    Items requiring attention
+                                </p>
+
+                            </div>
+
+                            <span class="alert-count">
+                                3 alerts
+                            </span>
+
+                        </div>
+
+
+                        <div class="alerts-list">
+
+
+                            <div class="alert-item danger">
+
+                                <div class="alert-icon">
+                                    !
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Safety Helmet
+                                    </strong>
+
+                                    <span>
+                                        Out of stock
+                                    </span>
+
+                                </div>
+
+                                <span class="alert-arrow">
+                                    →
+                                </span>
+
+                            </div>
+
+
+                            <div class="alert-item warning">
+
+                                <div class="alert-icon">
+                                    !
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Industrial Chair
+                                    </strong>
+
+                                    <span>
+                                        Only 84 units remaining
+                                    </span>
+
+                                </div>
+
+                                <span class="alert-arrow">
+                                    →
+                                </span>
+
+                            </div>
+
+
+                            <div class="alert-item info">
+
+                                <div class="alert-icon">
+                                    ✦
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        AI Stock Insight
+                                    </strong>
+
+                                    <span>
+                                        Copper Wire demand ↑18%
+                                    </span>
+
+                                </div>
+
+                                <span class="alert-arrow">
+                                    →
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     FOOTER
+                     ================================================= -->
+
+                <footer>
+
+                    <span>
+                        StockSense Inventory OS · v1.0
+                    </span>
+
+                    <span>
+                        ● All systems operational
+                    </span>
+
+                </footer>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+         NEW OPERATION MODAL
+         ========================================================= -->
+
+    <div
+        class="modal-overlay"
+        id="operationModal"
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        INVENTORY OPERATION
+                    </span>
+
+                    <h2>
+                        Create New Operation
+                    </h2>
+
+                </div>
+
+                <button
+                    class="modal-close"
+                    id="closeModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="operation-options">
+
+                <button class="operation-option">
+
+                    <span class="operation-option-icon receive">
+                        ↓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            New Receipt
+                        </strong>
+
+                        <small>
+                            Receive goods from supplier
+                        </small>
+
+                    </div>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+                <button class="operation-option">
+
+                    <span class="operation-option-icon deliver">
+                        ↑
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            New Delivery
+                        </strong>
+
+                        <small>
+                            Send goods out of warehouse
+                        </small>
+
+                    </div>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+                <button class="operation-option">
+
+                    <span class="operation-option-icon transfer">
+                        ⇄
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Internal Transfer
+                        </strong>
+
+                        <small>
+                            Move stock between locations
+                        </small>
+
+                    </div>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+                <button class="operation-option">
+
+                    <span class="operation-option-icon adjust">
+                        ✓
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Stock Adjustment
+                        </strong>
+
+                        <small>
+                            Correct physical stock mismatch
+                        </small>
+
+                    </div>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
